@@ -5,11 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="main.js" defer></script>
+    <link rel="stylesheet" href="./style.css"/>
     <title>Frontend Portfolio Project</title>
 </head>
 <body>
-    <h1>SPORTS PLAYER BIO PROJECT using thesportsdb API </h1>
-    <h2>Richie Carrasco</h2>
+    <div>
+        <div class="menu-bar">
+            <ul>
+                <!-- add a href ='#'-->
+                <li class="home">Home</li> 
+                <li class="about">About</li>
+            </ul>
+
+        </div>
+    <h1>SPORTS PLAYER BIO PROJECT</h1>
+    <header>
+        <form>
+            <label>Write First and Last Name of Player</label>
+            <input name="id" id="location" type="text" placeholder="type a city"/>
+            <input type="submit" id="button1" value="Get Player">
+        </form>
+    </header>
+    </div> 
+     
+    <main>
+        <div>
+            <aside class="fullInfo">
+                <h3></h3>
+                
+                <article id="image"></article>
+                <article id="personal"></article>
+                <article id="professional"></article>
+                <article id="social"></article>
+                
+            </aside>
+            <aside class="main">
+
+                <h3 id="title"></h3>
+                <article id="bio"></article>
+
+                <!-- main content -->
+            </aside>
+        </div>
+    </main>
+    <aside class="sideBar">
+        <section>
+            <h3 id="noPrev">No Previous Searches</h3>
+            <ul></ul>
+            <p id="no-search">No previous searches</p>
+
+        </section>
+</aside>
 
 </body>
 </html>
