@@ -1,4 +1,4 @@
-"player": [
+"player" [
         {
             "idPlayer": "34153736",
             "idTeam": "137235",
@@ -62,4 +62,3 @@
             "strLocked": "unlocked"
         }
     ]
-}

@@ -5,7 +5,7 @@ const loc=document.querySelector('#location')
 const image=document.querySelector('#image')
 const personal=document.querySelector('#personal')
 const bio= document.querySelector('#bio')
-const main=document.querySelector('.main')
+const main=document.querySelector('#main')
 
 
 
@@ -32,25 +32,35 @@ fetch(`${BASE_URL}${value}`)
     let player=resJsn.player[0]
 
     image.innerHTML=""
-    let img1 = document.createElement("img")
-    img1.setAttribute("src",`${player.strThumb}`)
-    img1.setAttribute("alt","player")
-    img1.classList.add("athlete")
-    image.prepend(img1)
+
+    if(player.strThumb !== null){
+        if(player.strThumb !== ""){
+            let img1 = document.createElement("img")
+            img1.setAttribute("src",`${player.strThumb}`)
+            img1.setAttribute("alt","player")
+            img1.classList.add("athlete")
+            image.prepend(img1)
+        }}
 
     if(player.strRender !== null){
-    let img2= document.createElement("img")
-    img2.setAttribute("src",`${player.strRender}`)
-    img2.setAttribute("alt","player")
-    img2.classList.add("athlete2")
-    image.append(img2)}
+        if(player.strRender !== ""){
+            let img2= document.createElement("img")
+            img2.setAttribute("src",`${player.strRender}`)
+            img2.setAttribute("alt","player")
+            img2.classList.add("athlete")
+            // img2.classList.add("wrapper")
+            image.append(img2)
+        }}
 
     if(player.strFanart4 !== null){
-        let img3= document.createElement("img")
-        img3.setAttribute("src",`${player.strFanart4}`)
-        img3.setAttribute("alt","player")
-        img3.classList.add("athlete2")
-        image.append(img3)}
+        if(player.strFanart4 !== ""){
+            let img3= document.createElement("img")
+            img3.setAttribute("src",`${player.strFanart4}`)
+            img3.setAttribute("alt","player")
+            img3.classList.add("athlete")
+            // img3.classList.add("wrapper")
+            image.append(img3)
+        }}
     
     
 
@@ -68,15 +78,7 @@ fetch(`${BASE_URL}${value}`)
 
     // professional info 
     profInfo['Gender'] = player.strGender
-    if(player.strNumber === null){
-        // profInfo['Jersey Number'] = player.strNumber
-        }
-    else if(player.strNumber === ""){}
-    else if(player.strNumber === player.strNumber){
-        profInfo['Jersey Number'] = player.strNumber
-    }
-
-    
+    profInfo['Jersey Number'] = player.strNumber
     profInfo['Position']=player.strPosition
     profInfo['Sport Type']=player.strSport
     if(player.strTeam.includes('_')){
@@ -93,11 +95,21 @@ fetch(`${BASE_URL}${value}`)
         // social medeia info
     let a1 = document.createElement("a")   
     const social=document.querySelector('#social')
-    social.innerHTML=''    
+    social.innerHTML=''  
+    
+    
+    // var a = document.createElement('a');
+    //   var linkText = document.createTextNode("my title text");
+    //   a.appendChild(linkText);
+    //   a.title = "my title text";
+    //   a.href = `https:${player.strInstagram}`;
+    //   a.target="_blank"
+    //   social.append(a);
+
     if (player.strInstagram !== ""){
         
         a1.innerHTML=`${player.strPlayer}'s Instagram`
-        a1.href=`${player.strInstagram}`
+        a1.href=`https:${player.strInstagram}`
         a1.target=`_self`
 
         const li3=document.createElement('li')
@@ -111,7 +123,7 @@ fetch(`${BASE_URL}${value}`)
         let a2 = document.createElement("a")
         
         a2.innerHTML=`${player.strPlayer}'s Twitter`
-        a2.href=`${player.strTwitter}`
+        a2.href=`https:${player.strTwitter}`
         a2.target=`_self`
         const li2=document.createElement('li')
         li2.append(a2)
@@ -122,7 +134,7 @@ fetch(`${BASE_URL}${value}`)
         let a3 = document.createElement("a")
         
         a3.innerHTML=`${player.strPlayer}'s Twitter`
-        a3.href=`${player.strTwitter}`
+        a3.href=`https:${player.strFacebook}`
         a3.target=`_self`
         const x=`Twitter: ${a3}`
         const li3=document.createElement('li')
@@ -173,9 +185,13 @@ function personObj(personInfo){
     head1.innerHTML='Background Info'
 
     for(const [key, value] of Object.entries(personInfo)){
+        if(value !== null ){
+            if(value !== ''){
+                if(value!== "0"){
+        
         const p1=document.createElement('p')
         p1.innerHTML=`<strong>${key}</strong>: ${value}`
-        personal.append(p1)}
+        personal.append(p1)}}}}
         personal.prepend(head1)   
 
 }
@@ -187,25 +203,12 @@ function proObj(profInfo){
     head2.innerHTML='Professional Info'
 
     for(const [key, value] of Object.entries(profInfo)){
+        if(value !== null ){
+            if(value !== ''){
         const p2=document.createElement('p')
         p2.innerHTML=`<strong>${key}</strong>: ${value}`
-        professional.append(p2)}
+        professional.append(p2)}}}
         professional.prepend(head2)   
 
 }
 
-
-
-// function socialObj(socialInfo){
-//     const social=document.querySelector('#social')
-//     social.innerHTML=''
-//     const head3=document.createElement('h3')
-//     head3.innerHTML='Social Media Info'
-
-//     for(const [key, value] of Object.entries(socialInfo)){
-//         const p3=document.createElement('p')
-//         p3.innerHTML=`<strong>${key}</strong>: ${value}`
-//         social.append(p3)}
-//         if(socialInfo!==""){social.prepend(head3)}   
-
-// }

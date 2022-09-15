@@ -9,53 +9,56 @@
     <title>Frontend Portfolio Project</title>
 </head>
 <body>
-    <div>
-        <div class="menu-bar">
+    <div class="wrapper">
+        <!-- box 1 -->
+        <header> 
             <ul>
                 <!-- add a href ='#'-->
-                <li class="home">Home</li> 
-                <li class="about">About</li>
+                <li class="home">
+                    <a href="index.html">
+                        <div id="res">Reset</div></a> </li> 
+                <li class="about"><a href="about/aboutme.html">About</a> </li>
             </ul>
+        
 
-        </div>
+        </header>
+        <!-- box 2-->
+    <nav>   
     <h1>SPORTS PLAYER BIO PROJECT</h1>
-    <header>
+    
         <form>
             <label>Write First and Last Name of Player</label>
-            <input name="id" id="location" type="text" placeholder="type a city"/>
+            <input name="id" id="location" type="text" placeholder="type an athlete"/>
             <input type="submit" id="button1" value="Get Player">
         </form>
-    </header>
-    </div> 
+    
+    </nav> 
      
-    <main>
-        <div>
-            <aside class="fullInfo">
-                <h3></h3>
-                
-                <article id="image"></article>
-                <article id="personal"></article>
-                <article id="professional"></article>
-                <article id="social"></article>
-                
-            </aside>
-            <aside class="main">
-
+    <!-- box 3 -->
+    <main class="content">
+            <div class="main">
                 <h3 id="title"></h3>
                 <article id="bio"></article>
+            </div>
 
-                <!-- main content -->
-            </aside>
-        </div>
     </main>
-    <aside class="sideBar">
+    <!-- box 4 -->
+    <aside class="sidebar">
+        <h3></h3>
+        <article id="image"></article>
+        <article id="personal"></article>
+        <article id="professional"></article>
+        <!-- <article id='socialMedia'> -->
+            <ul id="social"></ul> </article>
+    </aside>
+    <!-- box 5 -->
+    <footer>
         <section>
-            <h3 id="noPrev">No Previous Searches</h3>
-            <ul></ul>
-            <p id="no-search">No previous searches</p>
-
+            <!-- need to work on this -->
+            <p id="no-search">footer</p>
         </section>
-</aside>
+    </footer>
 
+</div>
 </body>
 </html>
