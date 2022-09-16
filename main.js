@@ -5,13 +5,14 @@ const loc=document.querySelector('#location')
 const image=document.querySelector('#image')
 const personal=document.querySelector('#personal')
 const bio= document.querySelector('#bio')
-const main=document.querySelector('#main')
 const error =document.querySelector('.error')
 const initial=document.querySelector('.initial')
 const wrapper2=document.querySelector('.wrapper2')
 const container=document.querySelector('#container')
 const hidden2=document.querySelector('.hidden2')
 const hidden4=document.querySelector('#footerr')
+const nav=document.querySelector('nav')
+const center=document.querySelector('body')
 
 
 
@@ -53,6 +54,9 @@ form.addEventListener("submit", (event)=>{
         container.classList.add('wrapper')
         hidden2.classList.remove('hidden2')
         hidden4.classList.remove('hidden4')
+        nav.classList.add('navigation')
+        nav.classList.remove('initialNav')
+        center.classList.remove('center')
 
 
     
