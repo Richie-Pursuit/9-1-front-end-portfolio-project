@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="main.js" defer></script>
     <link rel="stylesheet" href="./style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <title>Frontend Portfolio Project</title>
 </head>
 <body>
-    <div class="wrapper">
+    <div id="container" class="wrapper2">
         <!-- box 1 -->
         <header> 
             <ul>
@@ -35,24 +38,28 @@
     </nav> 
      
     <!-- box 3 -->
-    <main class="content">
+    <main class="content content2">
             <div class="main">
-                <h3 id="title"></h3>
-                <article id="bio"></article>
+                
+                <article id="bio">
+                    <p class="initial">Search your favorite athlete</p>
+                    <p class="error hidden"> </p>
+                </article>
             </div>
 
     </main>
     <!-- box 4 -->
-    <aside class="sidebar">
-        <h3></h3>
+    <aside class="sidebar hidden2">
+        
         <article id="image"></article>
         <article id="personal"></article>
         <article id="professional"></article>
         <!-- <article id='socialMedia'> -->
+            <h3 id="socialtitle" class="hidden3">Social Media</h3>
             <ul id="social"></ul> </article>
     </aside>
     <!-- box 5 -->
-    <footer>
+    <footer id="footerr" class="hidden4" >
         <section>
             <!-- need to work on this -->
             <p id="no-search">footer</p>

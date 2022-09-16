@@ -6,6 +6,13 @@ const image=document.querySelector('#image')
 const personal=document.querySelector('#personal')
 const bio= document.querySelector('#bio')
 const main=document.querySelector('#main')
+const error =document.querySelector('.error')
+const initial=document.querySelector('.initial')
+const wrapper2=document.querySelector('.wrapper2')
+const container=document.querySelector('#container')
+const hidden2=document.querySelector('.hidden2')
+const hidden4=document.querySelector('#footerr')
+
 
 
 
@@ -17,9 +24,38 @@ const main=document.querySelector('#main')
     //     console.log(resJson.player[0].strNumber)
     // }
 
+
+
 form.addEventListener("submit", (event)=>{
     event.preventDefault()
     const value =loc.value.split(' ').join('%20')
+
+    if(loc.value===""){
+        bio.innerHTML=""
+        initial.classList.add('hidden')
+        error.classList.remove('hidden')
+       error.innerHTML= `Please enter a valid input`
+       bio.append(error)
+       
+
+    }
+    else if(loc.value===" "){
+        // bio.innerHTML=""
+        
+        initial.classList.add('hidden')
+        error.classList.remove('hidden')
+       error.innerHTML= `Please enter a valid input`
+    //    bio.append(error)
+    }
+    else{
+        error.classList.add(`hidden`)
+        wrapper2.classList.remove('wrapper2')
+        container.classList.add('wrapper')
+        hidden2.classList.remove('hidden2')
+        hidden4.classList.remove('hidden4')
+
+
+    
 
 fetch(`${BASE_URL}${value}`)
 .then((res)=>res.json())
@@ -30,6 +66,8 @@ fetch(`${BASE_URL}${value}`)
     let profInfo={}
     let socialInfo={}
     let player=resJsn.player[0]
+
+    initial.classList.add('hidden')
 
     image.innerHTML=""
 
@@ -133,7 +171,7 @@ fetch(`${BASE_URL}${value}`)
     if (player.strFacebook !== ""){
         let a3 = document.createElement("a")
         
-        a3.innerHTML=`${player.strPlayer}'s Twitter`
+        a3.innerHTML=`${player.strPlayer}'s Facebook`
         a3.href=`https:${player.strFacebook}`
         a3.target=`_self`
         const x=`Twitter: ${a3}`
@@ -144,6 +182,14 @@ fetch(`${BASE_URL}${value}`)
 
         // socialInfo['Facebook']=player.strFacebook
     }
+    for(const [key,value] of Object.entries(socialInfo))
+            if(value !== null ){
+                if(value !== ''){
+                    const socialtitle=document.querySelector('#socialtitle')
+                    socialtitle.classList.add('hidden3')
+                    
+                    
+        }}
     
 
     // bio
@@ -174,7 +220,7 @@ fetch(`${BASE_URL}${value}`)
 })
 .catch(err=>console.log(err))
 
-
+}
 
 })
 
