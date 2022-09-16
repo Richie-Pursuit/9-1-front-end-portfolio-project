@@ -150,9 +150,6 @@ li,h3,p,h1,label,input, a{
    height: fit-content;
 }
 
-.content{
-   
-}
 
 .sidebar{
     grid-area: sidebar;
